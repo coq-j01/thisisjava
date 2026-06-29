@@ -30,7 +30,7 @@ public class ExamArr {
 //				System.out.println(scores[i][j] + "점"); // 점수 출력
 //			}
 //		}
-		// 각 반 20명 총점, 평균
+//		// 각 반 20명 총점, 평균
 //		int totalSum = 0;
 //		int totalCount = 0;
 //		for (int i = 0; i < scores.length; i++) {
