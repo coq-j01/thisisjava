@@ -7,6 +7,7 @@ public class AdvancedForExample {
 		//배열 항목 전체 합 구하기
 		int sum = 0; 
 		for (int score : scores) {
+			//int score = 95, 71, 84, 93, 87 총 5번 반복
 			sum = sum + score;
 		}
 		System.out.println("점수 총합 = " + sum);

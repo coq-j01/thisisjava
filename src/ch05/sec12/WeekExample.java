@@ -28,6 +28,7 @@ public class WeekExample {
 		if(today == Week.SUNDAY) {
 			System.out.println("일요일에는 축구를 합니다.");
 		} else {
+			System.out.println("오늘은"+today+"입니다.ㅡ");
 			System.out.println("열심히 자바를 공부합니다.");
 		}
 	}
