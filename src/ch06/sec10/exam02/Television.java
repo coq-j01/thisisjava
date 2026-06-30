@@ -5,7 +5,7 @@ public class Television {
 	static String model = "LCD";
 	static String info;
 
-	static {
+	static {  //static 블럭
 		info = company + "-" + model;
 		}
 }
