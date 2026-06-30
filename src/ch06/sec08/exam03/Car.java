@@ -28,6 +28,7 @@ public class Car {
 			} else {
 				System.out.println("멈춥니다.(gas잔량:" + gas + ")");
 				return; // 메소드 종료
+						// void라 굳이 return을 안 쓰고 break 사용하여도됨.
 			}
 		}
 	}
