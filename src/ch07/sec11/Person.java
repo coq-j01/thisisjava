@@ -1,6 +1,6 @@
 package ch07.sec11;
 
-public sealed class Person permits Employee, Manager {
+public sealed class Person permits Employee, Manager { //다른 자식 허용X
 	//필드
 	public String name;
 
