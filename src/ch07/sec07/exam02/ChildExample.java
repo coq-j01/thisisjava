@@ -10,7 +10,7 @@ public class ChildExample {
 
 		//메소드 호출
 		parent.method1();
-		parent.method2();
+		parent.method2(); // 자식의 메소드 호출
 		//parent.method3(); (호출 불가능)
 	}
 }
