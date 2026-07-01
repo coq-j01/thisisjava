@@ -22,8 +22,11 @@ public class AnimalExample {
 		for(동물 ani : arr2) {
 			ani.울다();
 			// ani.꼬리흔들기(); //강아지만 가능
-			if(ani instanceof 강아지) { //instanceof 객체확인
-				강아지 dog2 = (강아지) ani; //강제 형변환
+//			if(ani instanceof 강아지) { //instanceof 객체확인
+//				강아지 dog2 = (강아지) ani; //강제 형변환
+//				dog2.꼬리흔들기();
+//			}
+			if(ani instanceof 강아지 dog2) { // 강아지 찾기와 강제형변환 동시
 				dog2.꼬리흔들기();
 			}
 		}
