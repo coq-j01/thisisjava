@@ -26,6 +26,8 @@ public class A {
 		void method() {
 			//A의 인스턴스 필드와 메소드 사용
 			//field1 = 10;		//(x)
+			A a = new A();
+			a.field1 = 10;
 			//method1();			//(x)
 			//A의 정적 필드와 메소드 사용
 			field2 = 10;			//(o)
