@@ -14,7 +14,7 @@ public class A {
 				System.out.println("arg: " + arg);		//(o)
 				System.out.println("var: " + var);		//(o)
 				
-				//로컬 변수 수정
+				//로컬 변수 수정 -> 읽기만 가능
 				//arg = 2;									      //(x)
 				//var = 2;									      //(x)
 			}
