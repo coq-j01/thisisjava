@@ -12,7 +12,10 @@ public class ExceptionHandlingExample {
 				System.out.println("배열 인덱스가 초과됨: " + e.getMessage());
 			} catch(NumberFormatException e) {
 				System.out.println("숫자로 변환할 수 없음: " + e.getMessage());
+			} catch(Exception e){
+				System.out.println("에러 발생");
 			}
 		}
+		System.out.println("종료");
 	}
 }

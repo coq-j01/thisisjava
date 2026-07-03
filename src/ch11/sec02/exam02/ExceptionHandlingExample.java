@@ -16,7 +16,8 @@ public class ExceptionHandlingExample {
 			Class.forName("java.lang.String2");
 			System.out.println("java.lang.String2 클래스가 존재합니다.");
 		} catch(ClassNotFoundException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 	}
 }

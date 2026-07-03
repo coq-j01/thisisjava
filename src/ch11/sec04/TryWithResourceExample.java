@@ -33,7 +33,7 @@ public class TryWithResourceExample {
 		
 		MyResource res1 = new MyResource("A"); 
 		MyResource res2 = new MyResource("B");
-		try (res1; res2) {
+		try (res1; res2) { // try() 괄호 안에 있는 것만 close()호출
 			String data1 = res1.read1();
 			String data2 = res2.read1();
 		} catch(Exception e) {
