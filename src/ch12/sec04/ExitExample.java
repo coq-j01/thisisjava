@@ -8,7 +8,7 @@ public class ExitExample {
 			if(i == 5) {
 				//JVM 프로세스 종료
 				System.out.println("프로세스 강제 종료");
-				System.exit(0);
+				System.exit(0); //0 : 정상종료, -1 : 문제있음
 			}
 		}
 	}
