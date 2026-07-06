@@ -5,6 +5,8 @@ import java.lang.reflect.*;
 public class ReflectionExample {
 	public static void main(String[] args) throws Exception {
 		Class clazz = Car.class;
+		//clazz로 객체 생성
+		//Object car = clazz.getConstructor().newInstance();
 		
 		System.out.println("[생성자 정보]");
 		Constructor[] constructors = clazz.getDeclaredConstructors();
