@@ -1,18 +1,36 @@
-package ch12.sec11.exam02;
+package ch12.sec11.exam02.copy3;
 
 import java.lang.reflect.*;
 	
 public class ReflectionExample {
 	public static void main(String[] args) throws Exception {
-		Car car = new Car();
-		car.setModel("모델");
-		car.setOwner("오너");
+		if (args.length == 0) {
+			System.out.println("실행 인자가 부족함");
+			return;
+		}
 		
-		String model = car.getModel();
-		String owner = car.getOwner();
+		Class clazz = Class.forName(args[0]);
+		//Class clazz = Class.forName("ch12.sec11.exam02.Car");
+		//Car car = new Car();
+		Object car = clazz.getConstructor().newInstance();
+		
+		Method setModelMethod = clazz.getDeclaredMethod(args[1], String.class);
+		//Method setModelMethod = clazz.getDeclaredMethod("setModel", String.class);
+		setModelMethod.invoke(car, args[2]);
+		//setModelMethod.invoke(car, "모델");
+		//car.setModel("모델");
+		
+		//car.setOwner("오너");
+		
+		Method getModelMethod = clazz.getDeclaredMethod(args[3]);
+		//Method getModelMethod = clazz.getDeclaredMethod("getModel");
+		String model = (String) getModelMethod.invoke(car);
+		//String model = car.getModel();
+		
+		//String owner = car.getOwner();
 
-		System.err.println(model);
-		System.err.println(owner);
+		System.out.println(model);
+		//System.out.println(owner);
 		
 		//Class clazz = Car.class;
 		//Class clazz = Class.forName("ch12.sec11.exam02.Car");

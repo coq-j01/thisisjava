@@ -1,4 +1,4 @@
-package ch12.sec11.exam02;
+package ch12.sec11.exam02.copy1;
 
 public class Car {
 	//필드

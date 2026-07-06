@@ -1,18 +1,27 @@
-package ch12.sec11.exam02;
+package ch12.sec11.exam02.copy1;
 
 import java.lang.reflect.*;
 	
 public class ReflectionExample {
 	public static void main(String[] args) throws Exception {
-		Car car = new Car();
-		car.setModel("모델");
-		car.setOwner("오너");
+		Class clazz = Class.forName("ch12.sec11.exam02.Car");
+		//Car car = new Car();
+		Object car = clazz.getConstructor().newInstance();
 		
-		String model = car.getModel();
-		String owner = car.getOwner();
+		Method setModelMethod = clazz.getDeclaredMethod("setModel", String.class);
+		setModelMethod.invoke(car, "모델");
+		//car.setModel("모델");
+		
+		//car.setOwner("오너");
+		
+		Method getModelMethod = clazz.getDeclaredMethod("getModel");
+		String model = (String) getModelMethod.invoke(car);
+		//String model = car.getModel();
+		
+		//String owner = car.getOwner();
 
-		System.err.println(model);
-		System.err.println(owner);
+		System.out.println(model);
+		//System.out.println(owner);
 		
 		//Class clazz = Car.class;
 		//Class clazz = Class.forName("ch12.sec11.exam02.Car");
