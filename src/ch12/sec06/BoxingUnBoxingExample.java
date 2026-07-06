@@ -2,16 +2,18 @@ package ch12.sec06;
 
 public class BoxingUnBoxingExample {
 	public static void main(String[] args) {
-		//Boxing
-		Integer obj = 100;
-		System.out.println("value: " + obj.intValue());
-
-		//Unboxing
-		int value = obj;
-		System.out.println("value: " + value);
+		int a=10;
+		short b = 20;
+		byte c =30;
+		float d = 10.234f;
+		double e = 123.456; 
 		
-		//연산 시 Unboxing
-		int result = obj + 100;
-		System.out.println("result: " + result);
+		Object [] arr = { //boxing
+				a,b,c,d,e
+		};
+		
+		for(int i=0; i<arr.length; i++) {
+			System.out.println(arr[i].getClass().getSimpleName());
+		}
 	}
 }
