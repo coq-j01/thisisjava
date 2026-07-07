@@ -6,9 +6,9 @@ public class BeepPrintExample {
 	public static void main(String[] args) {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		for(int i=0; i<5; i++) {
-			toolkit.beep();
+			toolkit.beep(); //띵 소리 남
 			try { Thread.sleep(500); } catch(Exception e) {}
-		}
+		}                     // 0.5초 쉼
 
 		for(int i=0; i<5; i++) {
 			System.out.println("띵");

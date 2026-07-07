@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PrintAnnotation {
 	String value() default "-";
-	int number() default 15;
+	int number() default 15; //기본값
 }
