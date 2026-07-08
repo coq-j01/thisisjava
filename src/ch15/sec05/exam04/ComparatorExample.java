@@ -11,6 +11,7 @@ public class ComparatorExample {
 		treeSet.add(new Fruit("포도", 3000));
 		treeSet.add(new Fruit("수박", 10000));
 		treeSet.add(new Fruit("딸기", 6000));
+		treeSet.add(new Fruit("포도", 10000));
 		
 		//객체를 하나씩 가져오기
 		for(Fruit fruit : treeSet) {

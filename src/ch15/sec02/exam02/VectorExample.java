@@ -7,6 +7,7 @@ public class VectorExample {
 	public static void main(String[] args) {
 		//Vector 컬렉션 생성
 		List<Board> list = new Vector<>();
+//		List<Board> list = new ArrayList<>(); // 결과값 1780 -> 오버플로우 발생
 	
 		//작업 스레드 객체 생성
 		Thread threadA = new Thread() {

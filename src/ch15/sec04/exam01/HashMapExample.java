@@ -12,7 +12,7 @@ public class HashMapExample {
 		Map<String, Integer> map = new HashMap< >();
 
 		//객체 저장
-		map.put("신용권", 85);
+		map.put("신용권", 85); // key : 신용권, value : 85
 		map.put("홍길동", 90);
 		map.put("동장군", 80);
 		map.put("홍길동", 95);
@@ -45,6 +45,13 @@ public class HashMapExample {
 			System.out.println(k + " : " + v);
 		}
 		System.out.println();
+		//for문 사용
+		 for (Entry<String, Integer> entry : map.entrySet()) {
+	            String k = entry.getKey();
+	            Integer v = entry.getValue();
+	            System.out.println(k + " : " + v);
+	        }
+	        System.out.println();
 		
 		//키로 엔트리 삭제
 		map.remove("홍길동");
