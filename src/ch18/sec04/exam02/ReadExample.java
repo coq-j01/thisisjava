@@ -7,30 +7,36 @@ import java.io.Reader;
 
 public class ReadExample {
 	public static void main(String[] args) {
-		try {
-			Reader reader = null;
-
-			//1 문자씩 읽기
-			reader = new FileReader("C:/Temp/test.txt");
-			while(true) {
+		try (Reader reader = new FileReader("C:/Temp/test.txt"); 
+				Reader reader2 = new FileReader("C:/Temp/test.txt")) {
+//			Reader reader = null;
+//
+//			//1 문자씩 읽기
+//			reader = new FileReader("C:/Temp/test.txt");
+			while (true) {
 				int data = reader.read();
-				if(data == -1) break;
-				System.out.print((char)data);
+				if (data == -1)
+					break;
+				System.out.print((char) data);
 			}
-			reader.close();
+			// reader.close();
 			System.out.println();
 
-			//문자 배열로 읽기
-			reader = new FileReader("C:/Temp/test.txt");
+			// 문자 배열로 읽기
+			//reader = new FileReader("C:/Temp/test.txt");
 			char[] data = new char[100];
-			while(true) {
-				int num = reader.read(data);
-				if(num == -1) break;
-				for(int i=0; i<num; i++) {
+			while (true) {
+				int num = reader2.read(data);
+				if (num == -1)
+					break;
+				for (int i = 0; i < num; i++) {
 					System.out.print(data[i]);
 				}
+				for (char ch : data) { //무조건 100번 돔
+					System.out.print(ch);
+				}
 			}
-			reader.close();
+			// reader.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
