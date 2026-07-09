@@ -25,11 +25,11 @@ public class OptionalExample {
 			System.out.println("방법1_평균: 0.0");
 		}
 
-		//방법2
+		//방법2 - if를 사용하지 않아 더 좋음
 		double avg = list.stream()
 			.mapToInt(Integer :: intValue)
 			.average()
-			.orElse(0.0);
+			.orElse(0.0);//값이 없을 때 대신 출력
 		System.out.println("방법2_평균: " + avg);
 		
 		//방법3

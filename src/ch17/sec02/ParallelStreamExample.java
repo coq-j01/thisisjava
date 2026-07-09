@@ -14,10 +14,14 @@ public class ParallelStreamExample {
 		list.add("람다식");
 		list.add("박병렬");
 
+//		Stream<String> Stream = list.stream();
+//		Stream.forEach( name -> 
+//			System.out.println(name + ": " + Thread.currentThread().getName())
+//		);
 		//병렬 처리
 		Stream<String> parallelStream = list.parallelStream();
-		parallelStream.forEach( name -> {
-			System.out.println(name + ": " + Thread.currentThread().getName());
-		} );
+		parallelStream.forEach( name -> 
+			System.out.println(name + ": " + Thread.currentThread().getName())
+		);
 	}
 }

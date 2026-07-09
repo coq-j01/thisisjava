@@ -2,7 +2,7 @@ package ch17.sec03;
 
 public class Student {
 	private String name;
-	private int score;
+	private int score; //Student -> int 타입변환(매핑)
 	
 	public Student (String name, int score) {
 		this.name = name;

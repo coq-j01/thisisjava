@@ -17,7 +17,7 @@ public class ReductionExample {
 		//방법2
 		int sum2 = studentList.stream()
 						.map(Student :: getScore)
-						.reduce(0, (a, b) -> a+b);
+						.reduce(0, (a, b) -> a+b); // 초깃값 , 람다식
 		
 		System.out.println("sum1: " + sum1);
 		System.out.println("sum2: " + sum2);
