@@ -77,7 +77,7 @@ public class EchoServer {
 						
 						//데이터 보내기
 						DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-						dos.writeUTF(message);
+						dos.writeUTF("서버 : "+message);
 						dos.flush();
 						System.out.println( "[서버] 받은 데이터를 다시 보냄: " + message);
 						//-------------------------------------------------------------------------------

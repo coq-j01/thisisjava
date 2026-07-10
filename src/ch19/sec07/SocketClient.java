@@ -38,6 +38,10 @@ public class SocketClient {
 					
 					JSONObject jsonObject = new JSONObject(receiveJson);
 					String command = jsonObject.getString("command");
+//					{
+//						"command" : "incoming | message",
+//						"data" : "채팅용 메세지"
+//					}
 					
 					switch(command) {
 						case "incoming":

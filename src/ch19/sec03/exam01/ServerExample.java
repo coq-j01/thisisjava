@@ -38,7 +38,7 @@ public class ServerExample {
 			public void run() {
 				try {
 					//ServerSocket 생성 및 Port 바인딩
-					serverSocket = new ServerSocket(50001);
+					serverSocket = new ServerSocket(50002);
 					System.out.println("[서버] 시작됨");
 					
 					while(true) {

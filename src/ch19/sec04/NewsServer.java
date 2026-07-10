@@ -39,10 +39,10 @@ public class NewsServer {
 					//DatagramSocket 생성 및 Port 바인딩
 					datagramSocket = new DatagramSocket(50001);
 					System.out.println( "[서버] 시작됨");
-					
+					byte [] datas = new byte[1024];
 					while(true) {
 						//클라이언트가 구독하고 싶은 뉴스 주제 얻기
-						DatagramPacket receivePacket = new DatagramPacket(new byte[1024], 1024);
+						DatagramPacket receivePacket = new DatagramPacket(datas, datas.length);
 						datagramSocket.receive(receivePacket);
 						String newsKind = new String(receivePacket.getData(), 0, receivePacket.getLength(), "UTF-8");
 						
