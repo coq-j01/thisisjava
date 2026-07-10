@@ -9,10 +9,12 @@ public class DataInputOutputStreamExample {
 		DataOutputStream dos = new DataOutputStream(fos);
 
 		//기본 타입 출력
+		dos.writeInt(100);
 		dos.writeUTF("홍길동");
 		dos.writeDouble(95.5);
 		dos.writeInt(1);
-
+		
+		dos.writeInt(100);
 		dos.writeUTF("감자바");
 		dos.writeDouble(90.3);
 		dos.writeInt(2);
@@ -25,6 +27,7 @@ public class DataInputOutputStreamExample {
 		
 		//기본 타입 입력
 		for(int i=0; i<2; i++) {
+			int no = dis.readInt();
 			String name = dis.readUTF();
 			double score = dis.readDouble();
 			int order = dis.readInt();

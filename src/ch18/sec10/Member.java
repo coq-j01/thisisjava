@@ -3,7 +3,7 @@ package ch18.sec10;
 import java.io.Serializable;
 	
 public class Member implements Serializable {
-	private static final long serialVersionUID = -622284561026719240L;
+	private static final long serialVersionUID = -622284561026719240L; // 구분을 위함
 	private String id;
 	private String name;
 	
