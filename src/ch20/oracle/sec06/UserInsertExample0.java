@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-public class UserInsertExample {
+public class UserInsertExample0 {
 	public static void main(String[] args) {
 		Connection conn = null;
 		try {
@@ -20,24 +21,17 @@ public class UserInsertExample {
 			);	
 			
 			//매개변수화된 SQL 문 작성
-			String sql = "" +
-				"INSERT INTO users(userid, username, userpassword, userage, useremail)" + "VALUES(?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO users (userid, username, userpassword, userage, useremail) VALUES('userid3', 'username', 'userpassword', 20, 'useremail')";
 			
-			//PreparedStatement 얻기 및 값 지정
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, "winter2");
-			pstmt.setString(2, "한겨울");
-			pstmt.setString(3, "12345");
-			pstmt.setInt(4, 25);
-			pstmt.setString(5, "winter@mycompany.com");
+			//Statement 얻기 및 값 지정
+			Statement stmt = conn.createStatement();
 			
 			//SQL 문 실행
-			int rows = pstmt.executeUpdate();
+			int rows = stmt.executeUpdate(sql);
 			System.out.println("저장된 행 수: " + rows);
 			
-			//PreparedStatement 닫기
-			pstmt.close();
+			//Statement 닫기
+			stmt.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
