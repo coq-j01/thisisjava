@@ -19,9 +19,9 @@ public class BoardSelectExample {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/orcl", 
-				"java", 
-				"oracle"
+				"jdbc:oracle:thin:@localhost:1521/xe", 
+				"scott", 
+				"kosa1004"
 			);	
 			
 			//매개변수화된 SQL 문 작성

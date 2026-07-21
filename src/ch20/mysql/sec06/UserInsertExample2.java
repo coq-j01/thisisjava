@@ -5,19 +5,23 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserInsertExample {
+public class UserInsertExample2 {
    public static void main(String[] args) {
       Connection conn = null;
       try {
          //JDBC Driver 등록
-         Class.forName("com.mysql.cj.jdbc.Driver");
+         String jdbcDriver = System.getenv("JDBC_DRIVER");//"org.mariadb.jdbc.Driver"
+         Class.forName(jdbcDriver);
          
-         //연결하기
-         conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:13306/kosa_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC", 
-            "scott", 
-            "kosa1004"
-         );   
+         //연결하기 -- 환경변수
+         String url = System.getenv("JDBC_URL");
+         String username = System.getenv("JDBC_USERNAME");
+         String password = System.getenv("JDBC_PASSWORD");
+//         "jdbc:mariadb://localhost:23306/kosa_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC", 
+//         "root", 
+//         "kosa1004"jdbc:mysql://localhost:13306/kosa_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+         
+         conn = DriverManager.getConnection(url, username, password);   
          
          //매개변수화된 SQL문 작성
          String sql = "" +

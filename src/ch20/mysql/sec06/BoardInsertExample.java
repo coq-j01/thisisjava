@@ -17,19 +17,21 @@ public class BoardInsertExample {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/thisisjava", 
-				"java", 
-				"mysql"
+				"jdbc:mysql://localhost:13306/kosa_db", 
+				"scott", 
+				"kosa1004"
 			);
 			
 			//매개변수화된 SQL문 작성
 			String sql = "" +
-				"INSERT INTO boards (btitle, bcontent, bwriter, bdate, bfilename, bfiledata) " +
-				"VALUES (?, ?, ?, now(), ?, ?)";
+				"INSERT INTO boards (btitle, bcontent, bwriter, bfilename, bfiledata) " +
+				"VALUES (?, ?, ?, ?, ?)";
+			
+			String nextId = "select LAST_INSERT_ID";
 			
 			//PreparedStatement 얻기 및 값 지정
 			PreparedStatement pstmt = conn.prepareStatement(
-					sql, Statement.RETURN_GENERATED_KEYS);
+					sql, Statement.RETURN_GENERATED_KEYS); // 키 가져오기 위해 키 사용
 			pstmt.setString(1, "눈오는 날");
 			pstmt.setString(2, "함박눈이 내려요.");
 			pstmt.setString(3, "winter");

@@ -14,9 +14,9 @@ public class TransactionExample {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/orcl", 
-				"java", 
-				"oracle"
+				"jdbc:oracle:thin:@localhost:1521/xe", 
+				"scott", 
+				"kosa1004"
 			);	
 			
 			//트랜잭션 시작 ----------------------------------------------------

@@ -1,23 +1,36 @@
 package ch20.mysql.sec06;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Properties;
 
-public class UserInsertExample {
+import ch20.oracle.sec06.UserInsertExample4;
+
+public class UserInsertExample3 {
    public static void main(String[] args) {
       Connection conn = null;
       try {
-         //JDBC Driver 등록
-         Class.forName("com.mysql.cj.jdbc.Driver");
-         
-         //연결하기
-         conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:13306/kosa_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC", 
-            "scott", 
-            "kosa1004"
-         );   
+    	  	//Properties 컬렉션 생성
+			Properties properties = new Properties();
+			properties.load(UserInsertExample4.class.getResourceAsStream("database.properties"));
+
+			//주어진 키에 대한 값 읽기
+			String driver = properties.getProperty("driver");
+			String url = properties.getProperty("url");
+			String username = properties.getProperty("username");
+			String password = properties.getProperty("password");
+			//JDBC Driver 등록
+			Class.forName(driver);
+			
+			//연결하기
+			conn = DriverManager.getConnection(
+					url, 
+					username, 
+					password
+			);	
          
          //매개변수화된 SQL문 작성
          String sql = "" +
@@ -26,7 +39,7 @@ public class UserInsertExample {
          
          //PreparedStatement 얻기 및 값 지정
          PreparedStatement pstmt = conn.prepareStatement(sql);
-         pstmt.setString(1, "winter");
+         pstmt.setString(1, "winter"+System.nanoTime());
          pstmt.setString(2, "한겨울");
          pstmt.setString(3, "12345");
          pstmt.setInt(4, 25);
@@ -42,7 +55,10 @@ public class UserInsertExample {
          e.printStackTrace();
       } catch (SQLException e) {
          e.printStackTrace();
-      } finally {
+      } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
          if(conn != null) {
             try { 
                //연결 끊기

@@ -16,10 +16,12 @@ public class BoardWithFileInsertExample {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/orcl", 
-				"java", 
-				"oracle"
+				"jdbc:oracle:thin:@localhost:1521/xe", 
+				"scott", 
+				"kosa1004"
 			);	
+			
+			String sqlSeq = "select SEQ_BNO.NEXTVAL from dual";
 			
 			//매개변수화된 SQL 문 작성
 			String sql = "" +
@@ -32,7 +34,7 @@ public class BoardWithFileInsertExample {
 			pstmt.setString(2, "함박눈이 내려요.");
 			pstmt.setString(3, "winter");
 			pstmt.setString(4, "snow.jpg");
-			pstmt.setBlob(5, new FileInputStream("src/ch20/oracle/sec06/snow.jpg"));
+			pstmt.setBlob(5, new FileInputStream("src/ch20/oracle/sec06/snow.jpg")); 
 			
 			//SQL 문 실행
 			int rows = pstmt.executeUpdate();
@@ -40,7 +42,7 @@ public class BoardWithFileInsertExample {
 			
 			//bno 값 얻기
 			if(rows == 1) {
-				ResultSet rs = pstmt.getGeneratedKeys();
+				ResultSet rs = pstmt.getGeneratedKeys(); //bno 가져오기
 				if(rs.next()) {
 					int bno = rs.getInt(1);
 					System.out.println("저장된 bno: " + bno);

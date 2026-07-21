@@ -2,11 +2,13 @@ package ch20.oracle.sec09.exam01;
 
 import java.util.Objects;
 
+import lombok.Builder;
 import lombok.Data;
 	
 @Data //Constructor, Getter, Setter, hashCode(), equals(), toString() 자동 생성
 
-public class User {
+@Builder
+public class User2 {
 	private String userId;
 	private String userName;
 	private String userPassword;
@@ -21,7 +23,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		User2 other = (User2) obj;
 		return Objects.equals(userId, other.userId);
 	}
 	

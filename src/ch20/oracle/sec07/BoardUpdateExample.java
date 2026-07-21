@@ -15,19 +15,19 @@ public class BoardUpdateExample {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/orcl", 
-				"java", 
-				"oracle"
+				"jdbc:oracle:thin:@localhost:1521/xe", 
+				"scott", 
+				"kosa1004"
 			);	
 			
 			//매개변수화된 SQL 문 작성
 			String sql = new StringBuilder()
 					.append("UPDATE boards SET ")
-					.append("btitle=?, ")
-					.append("bcontent=?, ")
-					.append("bfilename=?, ")
-					.append("bfiledata=? ")
-					.append("WHERE bno=?")
+					.append(" btitle=?, ")
+					.append(" bcontent=?, ")
+					.append(" bfilename=?, ")
+					.append(" bfiledata=? ")
+					.append(" WHERE bno=?")
 					.toString();
 			
 			//PreparedStatement 얻기 및 값 지정
