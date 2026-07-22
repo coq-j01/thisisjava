@@ -22,9 +22,9 @@ public class BoardExample3 {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/orcl", 
-				"java", 
-				"oracle"
+				"jdbc:oracle:thin:@localhost:1521/xe", 
+				"scott", 
+				"kosa1004"
 			);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -43,8 +43,7 @@ public class BoardExample3 {
 		
 		//boards 테이블에서 게시물 정보를 가져와서 출력하기
 		try {
-			String sql = "" +
-				"SELECT bno, btitle, bcontent, bwriter, bdate " +
+			String sql = "SELECT bno, btitle, bcontent, bwriter, bdate " +
 				"FROM boards " + 
 				"ORDER BY bno DESC";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -56,7 +55,7 @@ public class BoardExample3 {
 				board.setBcontent(rs.getString("bcontent"));
 				board.setBwriter(rs.getString("bwriter"));
 				board.setBdate(rs.getDate("bdate"));
-				System.out.printf("%-6s%-12s%-16s%-40s \n", 
+				System.out.printf("%-6d%-12s%-16s%-40s \n", 
 						board.getBno(), 
 						board.getBwriter(),
 						board.getBdate(),

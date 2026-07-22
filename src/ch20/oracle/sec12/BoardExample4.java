@@ -22,9 +22,9 @@ public class BoardExample4 {
 			
 			//연결하기
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/orcl", 
-				"java", 
-				"oracle"
+					"jdbc:oracle:thin:@localhost:1521/xe", 
+					"scott", 
+					"kosa1004"
 			);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -138,6 +138,7 @@ public class BoardExample4 {
 	}
 	
 	public void exit() {
+		scanner.close();
 		System.exit(0);
 	}
 	
