@@ -11,14 +11,20 @@ public class FunctionCallExample {
 		Connection conn = null;
 		try {
 			//JDBC Driver 등록
-			Class.forName("oracle.jdbc.OracleDriver");
+//			Class.forName("oracle.jdbc.OracleDriver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			//연결하기
+//			conn = DriverManager.getConnection(
+//				"jdbc:oracle:thin:@localhost:1521/xe", 
+//				"scott", 
+//				"kosa1004"
+//			);	
 			conn = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521/xe", 
-				"scott", 
-				"kosa1004"
-			);	
+					"jdbc:mysql://localhost:13306/kosa_db", 
+					"scott", 
+					"kosa1004"
+				);	
 			
 			//매개변수화된 호출문 작성과 CallableStatement 얻기
 			String sql = "{? = call user_login(?, ?)}";
